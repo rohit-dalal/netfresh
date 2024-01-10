@@ -8,7 +8,8 @@
 
 `sudo mv /bin`
 
-`Flags:`
+
+#### Flags:
 
 `-r, --restart        Restart all network services.`
         
