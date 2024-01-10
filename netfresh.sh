@@ -17,6 +17,10 @@ elif [ "$1" = "-r" ] || [ "$1" = "--restart" ]
 then
     echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
     $(sudo ifconfig eth0 down)
+    
+    # enable eth0
+    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
+    $(sudo ifconfig eth0 up)
 
     echo -e "${GREEN}[+] Restarting NetworkManager services..\033[0m"
     $(sudo service NetworkManager restart)
@@ -27,15 +31,16 @@ then
     echo -e "${GREEN}[+] Restarting networking services......\033[0m"
     $(sudo service networking restart)
 
-    # enable eth0
-    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
-    $(sudo ifconfig eth0 up)
     exit 0
 
 elif [ "$1" = "-s" ] || [ "$1" = "--start" ]
 then
     echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
     $(sudo ifconfig eth0 down)
+    
+    # enable eth0
+    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
+    $(sudo ifconfig eth0 up)
 
     echo -e "${GREEN}[+] Starting NetworkManager services....\033[0m"
     $(sudo service NetworkManager restart)
@@ -46,15 +51,16 @@ then
     echo -e "${GREEN}[+] Starting networking services........\033[0m"
     $(sudo service networking restart)
 
-    # enable eth0
-    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
-    $(sudo ifconfig eth0 up)
     exit 0
 
 elif [ "$1" = "--stop" ]
-then
+then   
     echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
     $(sudo ifconfig eth0 down)
+
+    # enable eth0
+    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
+    $(sudo ifconfig eth0 up)
 
     echo -e "${GREEN}[+] Stoping NetworkManager services.....\033[0m"
     $(sudo service NetworkManager stop)
@@ -65,9 +71,6 @@ then
     echo -e "${GREEN}[+] Stoping networking services.........\033[0m"
     $(sudo service networking stop)
 
-    # enable eth0
-    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
-    $(sudo ifconfig eth0 up)
     exit 0
 
 else
