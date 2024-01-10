@@ -4,7 +4,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-if [ "$#" = "0" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]
 then
     echo -e "Usage: $0 [flags]"
     echo -e "\nFlags:"
@@ -54,7 +54,7 @@ then
     exit 0
 
 elif [ "$1" = "--stop" ]
-then   
+then
     echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
     $(sudo ifconfig eth0 down)
 
