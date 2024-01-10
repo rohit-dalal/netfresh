@@ -3,8 +3,9 @@
 
 `Usage: /usr/bin/netfresh.sh [flags]`
 
-##### Give executable permission
+##### Give executable permission:
 `sudo chmod +x netfresh.sh`
+
 `sudo mv /bin`
 
 `Flags:`
@@ -15,7 +16,7 @@
         
 `--stop               Stop all network services.`
         
-## Creator:
+## Developer:
 Rohit
 
 Connect via [LinkedIn](https://www.linkedin.com/in/rohit-dala1/)
