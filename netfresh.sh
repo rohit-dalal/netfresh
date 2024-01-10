@@ -4,7 +4,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-if [ "$1" = "-h" ] || [ "$1" = "--help" ]
+if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
 then
     echo -e "Usage: $0 [flags]"
     echo -e "\nFlags:"
