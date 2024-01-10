@@ -6,7 +6,7 @@
 ##### Give executable permission:
 `sudo chmod +x netfresh.sh`
 
-`sudo mv /bin`
+`sudo mv netfresh.sh /bin`
 
 
 #### Flags:
