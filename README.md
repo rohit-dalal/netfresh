@@ -3,6 +3,10 @@
 
 `Usage: /usr/bin/netfresh.sh [flags]`
 
+##### Give executable permission
+`sudo chmod +x netfresh.sh`
+`sudo mv /bin`
+
 `Flags:`
 
 `-r, --restart        Restart all network services.`
