@@ -1,12 +1,22 @@
 # netfresh
-# A simple bash command tool to fix network related problems
-
-`Usage: /usr/bin/netfresh.sh [flags]`
+## A simple bash command tool to fix network related problems
 
 ##### Give executable permission:
-`sudo chmod +x netfresh.sh`
+`sudo chmod +x netfresh`
 
-`sudo mv netfresh.sh /bin`
+`sudo mv netfresh /bin`
+
+
+#### Usage:
+
+###### Restart all network services
+        netfresh
+
+###### Start all network services
+        netfresh -s
+
+###### Stop all network services
+        netfresh --stop
 
 
 #### Flags:
