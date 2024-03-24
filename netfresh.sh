@@ -4,7 +4,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 
-if [ "$1" = "" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]
 then
     echo -e "Usage: $0 [flags]"
     echo -e "\nFlags:"
@@ -13,7 +13,7 @@ then
     echo -e "\t--stop               Stop all network services."
     echo -e "\n\t\t\t\t\t\t by ROHIT"
     
-elif [ "$1" = "-r" ] || [ "$1" = "--restart" ]
+elif [ "$1" = "" ] || [ "$1" = "-r" ] || [ "$1" = "--restart" ]
 then
     echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
     $(sudo ifconfig eth0 down)
@@ -35,33 +35,23 @@ then
 
 elif [ "$1" = "-s" ] || [ "$1" = "--start" ]
 then
-    echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
-    $(sudo ifconfig eth0 down)
-    
     # enable eth0
     echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
     $(sudo ifconfig eth0 up)
 
     echo -e "${GREEN}[+] Starting NetworkManager services....\033[0m"
-    $(sudo service NetworkManager restart)
+    $(sudo service NetworkManager start)
 
     echo -e "${GREEN}[+] Starting wpa_supplicant.............\033[0m"
-    $(sudo service wpa_supplicant restart)
+    $(sudo service wpa_supplicant start)
 
     echo -e "${GREEN}[+] Starting networking services........\033[0m"
-    $(sudo service networking restart)
+    $(sudo service networking start)
 
     exit 0
 
 elif [ "$1" = "--stop" ]
 then
-    echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
-    $(sudo ifconfig eth0 down)
-
-    # enable eth0
-    echo -e "${GREEN}[+] Enabled eth0 adaptor................\033[0m"
-    $(sudo ifconfig eth0 up)
-
     echo -e "${GREEN}[+] Stoping NetworkManager services.....\033[0m"
     $(sudo service NetworkManager stop)
 
@@ -70,6 +60,10 @@ then
 
     echo -e "${GREEN}[+] Stoping networking services.........\033[0m"
     $(sudo service networking stop)
+
+    # Disable eth0
+    echo -e "${GREEN}[+] Disabled eth0 adaptor...............\033[0m"
+    $(sudo ifconfig eth0 down)
 
     exit 0
 
